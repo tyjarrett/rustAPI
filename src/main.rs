@@ -51,10 +51,10 @@ async fn init_dbpool() -> Result<sqlx::Pool<sqlx::Sqlite>, sqlx::Error> {
         .await
         .expect("can't connect to database");
     
-    // sqlx::migrate!("router")
-    //     .run(&dbpool)
-    //     .await
-    //     .expect("database migration failed");
+    sqlx::migrate!()
+        .run(&dbpool)
+        .await
+        .expect("database migration failed");
     
     Ok(dbpool)
     }

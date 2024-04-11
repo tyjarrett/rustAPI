@@ -1,3 +1,5 @@
+-- Add migration script here
+
 CREATE TABLE IF NOT EXISTS todos (
 id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
 body TEXT NOT NULL,

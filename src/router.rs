@@ -12,17 +12,16 @@ pub async fn create_router(
     
     Router::new()
     .route("/alive", get(|| async { "ok" }))
-    // .route("/ready", get(ping))
+    .route("/ready", get(ping))
     // .nest(
     //     "/v1",
-    //     Router::new()
-    //         .route("/todos", get(todo_list).post(todo_create))
-    //         .route(
+    // Router::new()
+    //             .route("/todos", get(todo_list).post(todo_create))
+    //             .route(
     //             "/todos/:id",
-    //             get(todo_read).put(todo_update)
-    //             .delete(todo_delete),
-    
-    //         ),
+    //     get(todo_read).put(todo_update)
+    //                     .delete(todo_delete),
+    //             ),
     // )
     .with_state(dbpool)
     .layer(CorsLayer::new().allow_methods(Any)
